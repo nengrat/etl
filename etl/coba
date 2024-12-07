@@ -1,0 +1,9 @@
+merge {main table}
+using {tmp table}
+on main.id = tmp.id
+when matched then 
+    update set main.kolomA = tmp.kolomA
+when not matched then
+    insert ---main table gak ada data, tmp ada data
+when not matched by source then
+    delete ---main table ada data, tmp gak ada data
